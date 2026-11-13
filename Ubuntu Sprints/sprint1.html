@@ -23,6 +23,22 @@
       display: inline-block;
       margin-bottom: 20px;
     }
+
+    .taula-apartats {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .apartat {
+      margin-top: 35px;
+      padding-top: 15px;
+      border-top: 1px solid #ddd;
+    }
+
+    .tornar-index {
+      text-align: right;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -47,41 +63,116 @@
       </p>
 
       <h1>Implementació i Gestió d’un Sistema Ubuntu</h1>
-      <p class="subtitol">
-        Documentació de la tasca Sprint 1
-      </p>
+      <p class="subtitol">Documentació de la tasca Sprint 1</p>
     </div>
   </header>
 
   <main class="contenidor">
     <section class="panell">
 
-      <h2>Document de la tasca</h2>
+      <a id="index-apartats"></a>
+      <h2>Índex d'apartats</h2>
 
-      <p>
-        A continuació pots consultar el document PDF directament
-        des de la pàgina web.
-      </p>
+      <table class="taula-apartats">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Apartat</th>
+          </tr>
+        </thead>
 
-      <p>
-        <a
-          class="descarrega-pdf"
-          href="../documents/0483 –Sistemes Informàtics Sprint 1.pdf"
-          download>
-          📄 Descarregar el PDF
-        </a>
-      </p>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="#apartat1">Instal·lació i configuració d'Ubuntu</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="#apartat2">Configuració del sistema</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="#apartat3">Gestió i administració</a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><a href="#apartat4">Document PDF de la tasca</a></td>
+          </tr>
+        </tbody>
+      </table>
 
-      <iframe
-        class="visor-pdf"
-        src="../documents/0483 –Sistemes Informàtics Sprint 1.pdf"
-        title="Visor del document Sprint 1"
-        loading="lazy">
-        El navegador no pot mostrar el PDF.
-        <a href="../documents/0483 –Sistemes Informàtics Sprint 1.pdf">
-          Obre el document PDF.
-        </a>
-      </iframe>
+      <article class="apartat" id="apartat1">
+        <h2>1. Instal·lació i configuració d'Ubuntu</h2>
+
+        <p>
+          En aquest apartat es documenta el procés d'instal·lació
+          del sistema operatiu Ubuntu i la seva configuració inicial.
+        </p>
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
+
+      <article class="apartat" id="apartat2">
+        <h2>2. Configuració del sistema</h2>
+
+        <p>
+          En aquest apartat es recullen les configuracions bàsiques
+          del sistema, com ara la xarxa, els usuaris i les opcions
+          necessàries per al funcionament correcte d'Ubuntu.
+        </p>
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
+
+      <article class="apartat" id="apartat3">
+        <h2>3. Gestió i administració</h2>
+
+        <p>
+          En aquest apartat es mostra la gestió del sistema,
+          la instal·lació de programari i les eines d'administració
+          utilitzades durant la pràctica.
+        </p>
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
+
+      <article class="apartat" id="apartat4">
+        <h2>4. Document PDF de la tasca</h2>
+
+        <p>
+          A continuació pots consultar el document PDF directament
+          des de la pàgina web o descarregar-lo.
+        </p>
+
+        <p>
+          <a class="descarrega-pdf"
+             href="../documents/0483 –Sistemes Informàtics Sprint 1.pdf"
+             download>
+            📄 Descarregar el PDF
+          </a>
+        </p>
+
+        <iframe
+          class="visor-pdf"
+          src="../documents/0483 –Sistemes Informàtics Sprint 1.pdf"
+          title="Visor del document Sprint 1"
+          loading="lazy">
+          El navegador no pot mostrar el PDF.
+          <a href="../documents/0483 –Sistemes Informàtics Sprint 1.pdf">
+            Obre el document PDF.
+          </a>
+        </iframe>
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
 
     </section>
   </main>
