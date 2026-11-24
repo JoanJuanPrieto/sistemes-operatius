@@ -34,6 +34,19 @@
       border-top: 1px solid #ddd;
     }
 
+    .captura {
+      display: block;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      margin: 20px auto;
+      border-radius: 8px;
+    }
+
+    .comanda {
+      margin: 15px 0;
+    }
+
     .tornar-index {
       text-align: right;
       margin-top: 20px;
@@ -83,66 +96,232 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td><a href="#apartat1">Instal·lació i configuració d'Ubuntu</a></td>
+            <td><a href="#apartat1">Consultar les versions disponibles de SMPlayer</a></td>
           </tr>
           <tr>
             <td>2</td>
-            <td><a href="#apartat2">Configuració del sistema</a></td>
+            <td><a href="#apartat2">Configurar les preferències d'APT</a></td>
           </tr>
           <tr>
             <td>3</td>
-            <td><a href="#apartat3">Gestió i administració</a></td>
+            <td><a href="#apartat3">Afegir el repositori d'Ubuntu Jammy</a></td>
           </tr>
           <tr>
             <td>4</td>
-            <td><a href="#apartat4">Document PDF de la tasca</a></td>
+            <td><a href="#apartat4">Comprovar la versió candidata</a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><a href="#apartat5">Instal·lar SMPlayer</a></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><a href="#apartat6">Comprovar la versió instal·lada</a></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><a href="#apartat7">Document PDF de la tasca</a></td>
           </tr>
         </tbody>
       </table>
 
+      <!-- APARTAT 1 -->
       <article class="apartat" id="apartat1">
-        <h2>1. Instal·lació i configuració d'Ubuntu</h2>
+        <h2>1. Consultar les versions disponibles de SMPlayer</h2>
 
         <p>
-          En aquest apartat es documenta el procés d'instal·lació
-          del sistema operatiu Ubuntu i la seva configuració inicial.
+          Primer de tot, consultarem les versions disponibles del
+          programa SMPlayer mitjançant la comanda
+          <strong>apt-cache policy smplayer</strong>.
         </p>
+
+        <p>
+          Per fer-ho, accedirem al directori
+          <strong>/etc/apt/preferences.d/</strong> i executarem
+          la comanda següent:
+        </p>
+
+        <pre class="comanda"><code>cd /etc/apt/preferences.d
+apt-cache policy smplayer</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 1.png"
+             alt="Captura 1: consulta de les versions disponibles de SMPlayer">
 
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
       </article>
 
+      <!-- APARTAT 2 -->
       <article class="apartat" id="apartat2">
-        <h2>2. Configuració del sistema</h2>
+        <h2>2. Configurar les preferències d'APT</h2>
 
         <p>
-          En aquest apartat es recullen les configuracions bàsiques
-          del sistema, com ara la xarxa, els usuaris i les opcions
-          necessàries per al funcionament correcte d'Ubuntu.
+          A continuació, crearem el fitxer <strong>smplayer</strong>
+          dins del directori <strong>/etc/apt/preferences.d/</strong>.
+          Aquest fitxer servirà per indicar al gestor de paquets APT
+          que done prioritat a la versió 21.10.0 del programa.
         </p>
+
+        <p>Crearem i editarem el fitxer amb la comanda:</p>
+
+        <pre class="comanda"><code>nano smplayer</code></pre>
+
+        <p>
+          Dins del fitxer escriurem la configuració següent:
+        </p>
+
+        <pre class="comanda"><code>Package: smplayer
+Pin: version 21.10.0*
+Pin-Priority: 1001</code></pre>
+
+        <p>
+          Una vegada guardat el fitxer, actualitzarem la informació
+          dels paquets amb:
+        </p>
+
+        <pre class="comanda"><code>sudo apt update</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 2.png"
+             alt="Captura 2: creació del fitxer de preferències">
+
+        <img class="captura"
+             src="../img/Captura de pantalla 3.png"
+             alt="Captura 3: contingut del fitxer smplayer">
 
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
       </article>
 
+      <!-- APARTAT 3 -->
       <article class="apartat" id="apartat3">
-        <h2>3. Gestió i administració</h2>
+        <h2>3. Afegir el repositori d'Ubuntu Jammy</h2>
 
         <p>
-          En aquest apartat es mostra la gestió del sistema,
-          la instal·lació de programari i les eines d'administració
-          utilitzades durant la pràctica.
+          Ara crearem un nou fitxer anomenat
+          <strong>jammy.list</strong> dins del directori
+          <strong>/etc/apt/sources.list.d/</strong>.
+          Aquest fitxer permetrà afegir el repositori Universe
+          de la distribució Ubuntu Jammy.
         </p>
+
+        <p>Accedirem al directori i crearem el fitxer:</p>
+
+        <pre class="comanda"><code>cd /etc/apt/sources.list.d/
+sudo nano jammy.list</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 4.png"
+             alt="Captura 4: creació del fitxer jammy.list">
+
+        <p>
+          Dins del fitxer escriurem la línia següent:
+        </p>
+
+        <pre class="comanda"><code>deb http://archive.ubuntu.com/ubuntu jammy universe</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 5.png"
+             alt="Captura 5: contingut del fitxer jammy.list">
+
+        <p>
+          Després de guardar el fitxer, tornarem al directori
+          de preferències d'APT:
+        </p>
+
+        <pre class="comanda"><code>cd /etc/apt/preferences.d/</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 6.png"
+             alt="Captura 6: retorn al directori preferences.d">
 
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
       </article>
 
+      <!-- APARTAT 4 -->
       <article class="apartat" id="apartat4">
-        <h2>4. Document PDF de la tasca</h2>
+        <h2>4. Comprovar la versió candidata</h2>
+
+        <p>
+          Una vegada configurats els repositoris i les preferències,
+          tornarem a executar la comanda
+          <strong>apt-cache policy smplayer</strong>.
+        </p>
+
+        <p>
+          D'aquesta manera podrem comprovar les versions disponibles
+          i verificar que la versió 21.10.0 és la seleccionada
+          com a candidata per a la instal·lació.
+        </p>
+
+        <pre class="comanda"><code>apt-cache policy smplayer</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 7.png"
+             alt="Captura 7: comprovació de la versió candidata de SMPlayer">
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
+
+      <!-- APARTAT 5 -->
+      <article class="apartat" id="apartat5">
+        <h2>5. Instal·lar SMPlayer</h2>
+
+        <p>
+          Quan hàgem comprovat que la versió desitjada està
+          seleccionada, procedirem a instal·lar el programa
+          SMPlayer mitjançant el gestor de paquets APT.
+        </p>
+
+        <pre class="comanda"><code>sudo apt install smplayer</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 8.png"
+             alt="Captura 8: instal·lació de SMPlayer">
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
+
+      <!-- APARTAT 6 -->
+      <article class="apartat" id="apartat6">
+        <h2>6. Comprovar la versió instal·lada</h2>
+
+        <p>
+          Finalment, executarem SMPlayer per comprovar que
+          s'ha instal·lat correctament.
+        </p>
+
+        <p>Per obrir el programa utilitzarem la comanda:</p>
+
+        <pre class="comanda"><code>smplayer</code></pre>
+
+        <p>
+          Una vegada obert, podrem comprovar que disposem
+          de la versió <strong>21.10.0</strong>, tal com
+          havíem configurat anteriorment.
+        </p>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 9.png"
+             alt="Captura 9: SMPlayer obert amb la versió 21.10.0">
+
+        <p class="tornar-index">
+          <a href="#index-apartats">↑ Tornar a l'índex</a>
+        </p>
+      </article>
+
+      <!-- APARTAT 7 -->
+      <article class="apartat" id="apartat7">
+        <h2>7. Document PDF de la tasca</h2>
 
         <p>
           A continuació pots consultar el document PDF directament
