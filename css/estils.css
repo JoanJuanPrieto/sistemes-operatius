@@ -65,8 +65,8 @@ pre {
   width: 100%;
   background: #d3d9df;       /* Color fondo */
   border-radius: 8px;        /* Esquinas redondeadas */
-  margin: 80px 0;            /* Separación exterior */
-  overflow-x: auto;
+  padding: 10px 10px;        /* Espacio interior */ 
+  overflow-x: auto;   
 }
 
 pre code {
