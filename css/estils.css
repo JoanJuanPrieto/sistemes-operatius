@@ -1,3 +1,4 @@
+
 /* Full de estils comu per a tot el lloc.
    Enllaça-la sempre igual:
    <link rel="stylesheet" href="../css/estils.css">  (des d'una carpeta de sprint)
@@ -39,6 +40,19 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* ---------- Imatges generals ---------- */
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 20px auto;
+  border: 1px solid var(--color-vora);
+  border-radius: var(--radi);
 }
 
 .contenidor {
@@ -354,13 +368,6 @@ h2 {
 
 .apartat h2 {
   margin-top: 0;
-}
-
-.apartat img {
-  max-width: 100%;
-  border-radius: var(--radi);
-  border: 1px solid var(--color-vora);
-  margin: 14px 0;
 }
 
 .apartat ul {
