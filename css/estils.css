@@ -50,8 +50,7 @@ img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  margin: 20px auto;
-  border: 1px solid var(--color-vora);
+  border: 5px solid var(--color-vora);
   border-radius: var(--radi);
 }
 
