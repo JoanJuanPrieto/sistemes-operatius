@@ -63,17 +63,16 @@ main img {
 pre {
   display: block;
   width: 100%;
-  background: #d3d9df;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin: 10px 0;
+  background: #d3d9df;       /* Color fondo */
+  border-radius: 8px;        /* Esquinas redondeadas */
+  margin: 10px 0;            /* Separación exterior */
   overflow-x: auto;
 }
 
 pre code {
   background: transparent;
   padding: 0;
-  color: #263238;
+  color: #263238;             /* Color del texto */
   font-family: "Consolas", "Courier New", monospace;
   font-size: 0.9rem;
   line-height: 1.6;
