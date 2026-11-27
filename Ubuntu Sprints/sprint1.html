@@ -8,26 +8,6 @@
   <link rel="stylesheet" href="../css/estils.css">
 
   <style>
-    .visor-pdf {
-      width: 100%;
-      height: 80vh;
-      min-height: 500px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      display: block;
-      background: #f5f5f5;
-    }
-
-    .descarrega-pdf {
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-
-    .taula-apartats {
-      width: 100%;
-      margin-bottom: 30px;
-    }
-
     .apartat {
       margin-top: 35px;
       padding-top: 15px;
@@ -44,7 +24,13 @@
     }
 
     .comanda {
+      display: block;
       margin: 15px 0;
+    }
+
+    .taula-apartats {
+      width: 100%;
+      margin-bottom: 30px;
     }
 
     .tornar-index {
@@ -118,15 +104,12 @@
             <td>6</td>
             <td><a href="#apartat6">Comprovar la versió instal·lada</a></td>
           </tr>
-          <tr>
-            <td>7</td>
-            <td><a href="#apartat7">Document PDF de la tasca</a></td>
-          </tr>
         </tbody>
       </table>
 
       <!-- APARTAT 1 -->
       <article class="apartat" id="apartat1">
+
         <h2>1. Consultar les versions disponibles de SMPlayer</h2>
 
         <p>
@@ -151,10 +134,12 @@ apt-cache policy smplayer</code></pre>
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
+
       </article>
 
       <!-- APARTAT 2 -->
       <article class="apartat" id="apartat2">
+
         <h2>2. Configurar les preferències d'APT</h2>
 
         <p>
@@ -164,9 +149,15 @@ apt-cache policy smplayer</code></pre>
           que done prioritat a la versió 21.10.0 del programa.
         </p>
 
-        <p>Crearem i editarem el fitxer amb la comanda:</p>
+        <p>
+          Crearem i editarem el fitxer amb la comanda:
+        </p>
 
         <pre class="comanda"><code>nano smplayer</code></pre>
+
+        <img class="captura"
+             src="../img/Captura de pantalla 2.png"
+             alt="Captura 2: creació del fitxer de preferències">
 
         <p>
           Dins del fitxer escriurem la configuració següent:
@@ -176,28 +167,26 @@ apt-cache policy smplayer</code></pre>
 Pin: version 21.10.0*
 Pin-Priority: 1001</code></pre>
 
-        <p>
-          Una vegada guardat el fitxer, actualitzarem la informació
-          dels paquets amb:
-        </p>
-
-        <pre class="comanda"><code>sudo apt update</code></pre>
-
-        <img class="captura"
-             src="../img/Captura de pantalla 2.png"
-             alt="Captura 2: creació del fitxer de preferències">
-
         <img class="captura"
              src="../img/Captura de pantalla 3.png"
              alt="Captura 3: contingut del fitxer smplayer">
 
+        <p>
+          Una vegada guardat el fitxer, actualitzarem la informació
+          dels paquets amb la comanda següent:
+        </p>
+
+        <pre class="comanda"><code>sudo apt update</code></pre>
+
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
+
       </article>
 
       <!-- APARTAT 3 -->
       <article class="apartat" id="apartat3">
+
         <h2>3. Afegir el repositori d'Ubuntu Jammy</h2>
 
         <p>
@@ -208,7 +197,9 @@ Pin-Priority: 1001</code></pre>
           de la distribució Ubuntu Jammy.
         </p>
 
-        <p>Accedirem al directori i crearem el fitxer:</p>
+        <p>
+          Accedirem al directori i crearem el fitxer:
+        </p>
 
         <pre class="comanda"><code>cd /etc/apt/sources.list.d/
 sudo nano jammy.list</code></pre>
@@ -241,10 +232,12 @@ sudo nano jammy.list</code></pre>
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
+
       </article>
 
       <!-- APARTAT 4 -->
       <article class="apartat" id="apartat4">
+
         <h2>4. Comprovar la versió candidata</h2>
 
         <p>
@@ -268,10 +261,12 @@ sudo nano jammy.list</code></pre>
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
+
       </article>
 
       <!-- APARTAT 5 -->
       <article class="apartat" id="apartat5">
+
         <h2>5. Instal·lar SMPlayer</h2>
 
         <p>
@@ -289,10 +284,12 @@ sudo nano jammy.list</code></pre>
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
+
       </article>
 
       <!-- APARTAT 6 -->
       <article class="apartat" id="apartat6">
+
         <h2>6. Comprovar la versió instal·lada</h2>
 
         <p>
@@ -300,7 +297,9 @@ sudo nano jammy.list</code></pre>
           s'ha instal·lat correctament.
         </p>
 
-        <p>Per obrir el programa utilitzarem la comanda:</p>
+        <p>
+          Per obrir el programa utilitzarem la comanda:
+        </p>
 
         <pre class="comanda"><code>smplayer</code></pre>
 
@@ -317,45 +316,14 @@ sudo nano jammy.list</code></pre>
         <p class="tornar-index">
           <a href="#index-apartats">↑ Tornar a l'índex</a>
         </p>
-      </article>
 
-      <!-- APARTAT 7 -->
-      <article class="apartat" id="apartat7">
-        <h2>7. Document PDF de la tasca</h2>
-
-        <p>
-          A continuació pots consultar el document PDF directament
-          des de la pàgina web o descarregar-lo.
-        </p>
-
-        <p>
-          <a class="descarrega-pdf"
-             href="../documents/0483 –Sistemes Informàtics Sprint 1.pdf"
-             download>
-            📄 Descarregar el PDF
-          </a>
-        </p>
-
-        <iframe
-          class="visor-pdf"
-          src="../documents/0483 –Sistemes Informàtics Sprint 1.pdf"
-          title="Visor del document Sprint 1"
-          loading="lazy">
-          El navegador no pot mostrar el PDF.
-          <a href="../documents/0483 –Sistemes Informàtics Sprint 1.pdf">
-            Obre el document PDF.
-          </a>
-        </iframe>
-
-        <p class="tornar-index">
-          <a href="#index-apartats">↑ Tornar a l'índex</a>
-        </p>
       </article>
 
     </section>
   </main>
 
   <footer class="peu">
+
     <p class="peu-llicencia">
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca"
          target="_blank" rel="license noopener">
@@ -378,6 +346,7 @@ sudo nano jammy.list</code></pre>
     <p class="autoria">
       Autor: <strong>Joan Juan Prieto</strong> · Sistemes Operatius (ISOPJ1)
     </p>
+
   </footer>
 
 </body>
